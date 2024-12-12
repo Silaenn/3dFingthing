@@ -23,7 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = new Vector3(-verticalInput, 0f, horizontalInput);
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
 
         if(movement != Vector3.zero){
             Quaternion targetRotation = Quaternion.LookRotation(movement);
