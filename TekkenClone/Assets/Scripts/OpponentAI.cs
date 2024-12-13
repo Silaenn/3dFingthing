@@ -34,15 +34,32 @@ public class OpponentAI : MonoBehaviour
     }
 
     private void Update() {
+        if (attackCount == randomNumber){
+            attackCount = 0;
+        }
         for(int i = 0; i < fightingControllers.Length; i++){
-            if(players[i].gameObject.activeSelf){
-                Vector3 direction = (players[i].position - transform.position).normalized;
-                characterController.Move(direction * movementSpeed * Time.deltaTime);
+            if(players[i].gameObject.activeSelf && Vector3.Distance(transform.position, players[i].position) <= attackRadius){
+                animator.SetBool("Walking", false);
 
-                Quaternion targetRotattion = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotattion, rotationSpeed * Time.deltaTime);
+                if(Time.time - lastAttackTime > attackCooldown){
+                    int randomAttackIndex = UnityEngine.Random.Range(0, attackAnimations.Length);
 
-                animator.SetBool("Walking", true);
+                    if(!isTakingDamage){
+                        PerformAttack(randomAttackIndex);
+                    }
+
+
+                }
+            } else {
+                if(players[i].gameObject.activeSelf){
+                    Vector3 direction = (players[i].position - transform.position).normalized;
+                    characterController.Move(direction * movementSpeed * Time.deltaTime);
+
+                    Quaternion targetRotattion = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotattion, rotationSpeed * Time.deltaTime);
+
+                    animator.SetBool("Walking", true);
+                }
             }
         }
     }
