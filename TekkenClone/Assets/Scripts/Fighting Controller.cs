@@ -25,10 +25,17 @@ public class FightingController : MonoBehaviour
     public ParticleSystem attack3Effect;
     public ParticleSystem attack4Effect;
 
+    public AudioClip[] hitSounds;
+
+    [Header("Health")]
+    public int maxHealth = 100;
+    public int currentHealth;
+
 
     private void Awake() {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     private void Update() {
@@ -103,7 +110,22 @@ public class FightingController : MonoBehaviour
     public IEnumerator PlayHitDamageAnimation(int takeDamage){
         yield return new WaitForSeconds(0.2f);
 
+        if(hitSounds != null && hitSounds.Length > 0){
+            int randomIndex = UnityEngine.Random.Range(0, hitSounds.Length);
+            AudioSource.PlayClipAtPoint(hitSounds[randomIndex], transform.position);
+        }
+
+        currentHealth -= takeDamage;
+
+        if(currentHealth <= 0){
+            Die();
+        }
+
         animator.Play("HitDamageAnimation");
+    }
+
+    void Die(){
+        Debug.Log("Player died.");
     }
 
     public void Attack1Effect(){

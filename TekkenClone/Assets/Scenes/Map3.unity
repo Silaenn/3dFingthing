@@ -20094,7 +20094,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842886890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010827439, y: -0.018318947, z: -0.999369, w: -0.028437056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20102,7 +20102,7 @@ Transform:
   - {fileID: 49837334}
   - {fileID: 1718158947}
   - {fileID: 587554420}
-  m_Father: {fileID: 2916570863053684629}
+  m_Father: {fileID: 1852576807044863733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &842886892
 ParticleSystemRenderer:
@@ -70929,7 +70929,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -71100,7 +71100,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -75674,8 +75674,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503709753930862510}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.008583588, y: -0.18687563, z: 0.036782786, w: -0.98165715}
+  m_LocalPosition: {x: -0.024838828, y: -0.32838014, z: -0.0010224279}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -75683,7 +75683,7 @@ Transform:
   - {fileID: 1503709753666085777}
   - {fileID: 8773187191663505018}
   - {fileID: 4755397356924414283}
-  m_Father: {fileID: 2916570863053684629}
+  m_Father: {fileID: 1852576807044863733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503709753930862510
 GameObject:
@@ -80715,11 +80715,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8447082966508420547}
   - {fileID: 8153021305582743451}
   - {fileID: 3667946886913178326}
   - {fileID: 1189529853769556309}
   - {fileID: 9118793900563992113}
-  - {fileID: 8447082966508420547}
+  - {fileID: 842886891}
+  - {fileID: 1503709753930862509}
   m_Father: {fileID: 2563496969322552469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1852576807163269344
@@ -86077,9 +86079,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8044669281452023607}
-  - {fileID: 842886891}
   - {fileID: 143068767}
-  - {fileID: 1503709753930862509}
   m_Father: {fileID: 608321762106543937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2925517129764658995
@@ -131858,10 +131858,16 @@ MonoBehaviour:
   players:
   - {fileID: 543450653080324291}
   isTakingDamage: 0
-  attack1Effect: {fileID: 0}
-  attack2Effect: {fileID: 0}
-  attack3Effect: {fileID: 0}
-  attack4Effect: {fileID: 0}
+  attack1Effect: {fileID: 842886893}
+  attack2Effect: {fileID: 1411882109}
+  attack3Effect: {fileID: 143068769}
+  attack4Effect: {fileID: 1503709753930862508}
+  hitSounds:
+  - {fileID: 8300000, guid: 5174415e9879415498f7b0dd794d19c5, type: 3}
+  - {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+  - {fileID: 8300000, guid: 8ba1ce15e8593064aa781b941381f053, type: 3}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!143 &5866666021269673134
 CharacterController:
   m_ObjectHideFlags: 0
@@ -131931,10 +131937,19 @@ MonoBehaviour:
   - Attack3Animation
   - Attack4Animation
   dodgeDistance: 2
+  attackRadius: 2.2
+  opponents:
+  - {fileID: 543450652930461398}
   attack1Effect: {fileID: 5024009745413176581}
   attack2Effect: {fileID: 2955623459803669081}
   attack3Effect: {fileID: 7226583674077213824}
   attack4Effect: {fileID: 5024009744903449237}
+  hitSounds:
+  - {fileID: 8300000, guid: 5174415e9879415498f7b0dd794d19c5, type: 3}
+  - {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+  - {fileID: 8300000, guid: 8ba1ce15e8593064aa781b941381f053, type: 3}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!143 &5866666021388243643
 CharacterController:
   m_ObjectHideFlags: 0
