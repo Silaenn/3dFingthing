@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NewBehaviourScript : MonoBehaviour
+public class FightingController : MonoBehaviour
 {
     [Header("Player Movement")]
     public float movementSpeed = 1f;
