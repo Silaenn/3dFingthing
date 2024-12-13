@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class OpponentAI : MonoBehaviour
@@ -48,10 +49,11 @@ public class OpponentAI : MonoBehaviour
                         PerformAttack(randomAttackIndex);
                     }
 
+                    fightingControllers[i].StartCoroutine(fightingControllers[i].PlayHitDamageAnimation(attackDamages));
 
                 }
             } else {
-                if(players[i].gameObject.activeSelf){
+            if(players[i].gameObject.activeSelf){
                     Vector3 direction = (players[i].position - transform.position).normalized;
                     characterController.Move(direction * movementSpeed * Time.deltaTime);
 
@@ -82,6 +84,12 @@ public class OpponentAI : MonoBehaviour
     }
     void createRandomNumber(){
         randomNumber = UnityEngine.Random.Range(1, 5);
+    }
+
+     public IEnumerator PlayHitDamageAnimation(int takeDamage){
+        yield return new WaitForSeconds(0.2f);
+
+        animator.Play("HitDamageAnimation");
     }
     public void Attack1Effect(){
         attack1Effect.Play();

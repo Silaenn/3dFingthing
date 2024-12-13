@@ -15,6 +15,8 @@ public class FightingController : MonoBehaviour
     public int attackDamages = 5;
     public string[] attackAnimations = {"Attack1Animation", "Attack2Animation", "Attack3Animation", "Attack4Animation"};
     public float dodgeDistance = 2f;
+    public float attackRadius = 2.2f;
+    public Transform[] opponents;
     private float lastAttackTime;
 
     [Header("Effects and Sound")]
@@ -78,6 +80,11 @@ public class FightingController : MonoBehaviour
 
             lastAttackTime = Time.time;
 
+            foreach(Transform opponent in opponents){
+                if(Vector3.Distance(transform.position, opponent.position) <= attackRadius){
+                    opponent.GetComponent<OpponentAI>().StartCoroutine(opponent.GetComponent<OpponentAI>().PlayHitDamageAnimation(attackDamages));
+                }
+            }
 
         } else{
             Debug.Log("Cannot perform attack yet. Cooldown time remining");
@@ -91,6 +98,12 @@ public class FightingController : MonoBehaviour
             Vector3 dodgeDIrection = transform.forward * dodgeDistance;
             characterController.Move(dodgeDIrection);
         }
+    }
+
+    public IEnumerator PlayHitDamageAnimation(int takeDamage){
+        yield return new WaitForSeconds(0.2f);
+
+        animator.Play("HitDamageAnimation");
     }
 
     public void Attack1Effect(){
