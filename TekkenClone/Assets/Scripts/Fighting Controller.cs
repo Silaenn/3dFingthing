@@ -14,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float attackCooldown = 0.5f;
     public int attackDamages = 5;
     public string[] attackAnimations = {"Attack1Animation", "Attack2Animation", "Attack3Animation", "Attack4Animation"};
+    public float dodgeDistance = 2f;
     private float lastAttackTime;
 
 
@@ -24,6 +25,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Update() {
         PerformMovement();
+        PerformDodgeFront();
 
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             PerformAttack(0);
@@ -73,6 +75,15 @@ public class NewBehaviourScript : MonoBehaviour
 
         } else{
             Debug.Log("Cannot perform attack yet. Cooldown time remining");
+        }
+    }
+
+    void PerformDodgeFront(){
+        if(Input.GetKeyDown(KeyCode.E)){
+            animator.Play("DodgeFrontAnimation");
+
+            Vector3 dodgeDIrection = transform.forward * dodgeDistance;
+            characterController.Move(dodgeDIrection);
         }
     }
 }
