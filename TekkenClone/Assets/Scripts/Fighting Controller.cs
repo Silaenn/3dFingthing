@@ -108,10 +108,11 @@ public class FightingController : MonoBehaviour
     }
 
     public IEnumerator PlayHitDamageAnimation(int takeDamage){
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
 
         if(hitSounds != null && hitSounds.Length > 0){
             int randomIndex = UnityEngine.Random.Range(0, hitSounds.Length);
+            Debug.Log("Audio name: " + hitSounds[randomIndex].name);
             AudioSource.PlayClipAtPoint(hitSounds[randomIndex], transform.position);
         }
 
