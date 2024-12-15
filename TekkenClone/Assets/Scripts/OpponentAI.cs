@@ -94,6 +94,7 @@ public class OpponentAI : MonoBehaviour
     }
 
      public IEnumerator PlayHitDamageAnimation(int takeDamage){
+        
         yield return new WaitForSeconds(0.2f);
         
         if(hitSounds != null && hitSounds.Length > 0){

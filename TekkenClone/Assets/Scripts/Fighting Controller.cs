@@ -18,6 +18,7 @@ public class FightingController : MonoBehaviour
     public float attackRadius = 2.2f;
     public Transform[] opponents;
     private float lastAttackTime;
+    private bool isAttackOnCooldown = false;
 
     [Header("Effects and Sound")]
     public ParticleSystem attack1Effect;
@@ -97,6 +98,8 @@ public class FightingController : MonoBehaviour
             Debug.Log("Cannot perform attack yet. Cooldown time remining");
         }
     }
+    
+
 
     void PerformDodgeFront(){
         if(Input.GetKeyDown(KeyCode.E)){
@@ -108,6 +111,8 @@ public class FightingController : MonoBehaviour
     }
 
     public IEnumerator PlayHitDamageAnimation(int takeDamage){
+
+
         yield return new WaitForSeconds(0.3f);
 
         if(hitSounds != null && hitSounds.Length > 0){
