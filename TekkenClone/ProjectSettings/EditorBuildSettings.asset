@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map3.unity
     guid: 0038031f9b50bed45818957f2bf924a1
+  - enabled: 1
+    path: Assets/Scenes/SceneSelectChar.unity
+    guid: 45c0b4185cdd3d541a3dddb7c8b51d36
+  - enabled: 1
+    path: Assets/Scenes/SceneSelectStage.unity
+    guid: ddd94fd8fb1a9604aa53293a8b1f8a79
   m_configObjects: {}
