@@ -31,12 +31,14 @@ public class FightingController : MonoBehaviour
     [Header("Health")]
     public int maxHealth = 100;
     public int currentHealth;
+    public HealthBar healthBar;
 
 
     private void Awake() {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        healthBar.GiveFullHealth(currentHealth);
     }
 
     private void Update() {
@@ -89,7 +91,7 @@ public class FightingController : MonoBehaviour
             lastAttackTime = Time.time;
 
             foreach(Transform opponent in opponents){
-                if(Vector3.Distance(transform.position, opponent.position) <= attackRadius){
+                if(opponent.gameObject.activeInHierarchy && Vector3.Distance(transform.position, opponent.position) <= attackRadius){
                     opponent.GetComponent<OpponentAI>().StartCoroutine(opponent.GetComponent<OpponentAI>().PlayHitDamageAnimation(attackDamages));
                 }
             }
@@ -111,8 +113,6 @@ public class FightingController : MonoBehaviour
     }
 
     public IEnumerator PlayHitDamageAnimation(int takeDamage){
-
-
         yield return new WaitForSeconds(0.3f);
 
         if(hitSounds != null && hitSounds.Length > 0){
@@ -122,6 +122,7 @@ public class FightingController : MonoBehaviour
         }
 
         currentHealth -= takeDamage;
+        healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0){
             Die();
