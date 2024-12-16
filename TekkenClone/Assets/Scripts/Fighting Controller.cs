@@ -86,7 +86,6 @@ public class FightingController : MonoBehaviour
             animator.Play(attackAnimations[attackIndex]);
 
             int damage = attackDamages;
-            Debug.Log("Performed attack: " + attackIndex + 1 + " dealing " + damage + "damage");
 
             lastAttackTime = Time.time;
 
@@ -117,7 +116,6 @@ public class FightingController : MonoBehaviour
 
         if(hitSounds != null && hitSounds.Length > 0){
             int randomIndex = UnityEngine.Random.Range(0, hitSounds.Length);
-            Debug.Log("Audio name: " + hitSounds[randomIndex].name);
             AudioSource.PlayClipAtPoint(hitSounds[randomIndex], transform.position);
         }
 

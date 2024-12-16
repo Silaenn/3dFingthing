@@ -80,7 +80,6 @@ public class OpponentAI : MonoBehaviour
          animator.Play(attackAnimations[attackIndex]);
 
          int damage = attackDamages;
-         Debug.Log("Performed attack: " + attackIndex + 1 + " dealing " + damage + "damage");
 
          lastAttackTime = Time.time;
 

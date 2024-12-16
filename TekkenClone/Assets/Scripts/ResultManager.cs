@@ -8,6 +8,7 @@ public class ResultManager : MonoBehaviour
 {
     public GameObject resultPanel;
     public Text resultText;
+    public GameObject buttonPause;
 
     public FightingController[] fightingControllers;
     public OpponentAI[] opponentAI;
@@ -31,6 +32,7 @@ public class ResultManager : MonoBehaviour
     void SetResult(string result){
         resultText.text = result;
         resultPanel.SetActive(true);
+        buttonPause.SetActive(false);
         Time.timeScale = 0f;
     }
 

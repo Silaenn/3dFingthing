@@ -7,7 +7,7 @@ public class PlayerSelector : MonoBehaviour
 {
     public GameObject playerCharacters;
     private GameObject[] allCharacters;
-    private int currentIndex = 0;
+    public int currentIndex = 0;
 
 
     private void Start() {
@@ -16,7 +16,6 @@ public class PlayerSelector : MonoBehaviour
         for(int i = 0; i < playerCharacters.transform.childCount; i++)
         {
             allCharacters[i] = playerCharacters.transform.GetChild(i).gameObject;
-            Debug.Log(allCharacters[i]);
             allCharacters[i].SetActive(false);
         }
 
