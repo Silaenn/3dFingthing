@@ -1700,6 +1700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3298607548860709186, guid: d2e6a37c066a10342b6550065cdb586a,
         type: 3}
+      propertyPath: offset.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298607548860709186, guid: d2e6a37c066a10342b6550065cdb586a,
+        type: 3}
       propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 448176360401709111}
