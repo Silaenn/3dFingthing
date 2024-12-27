@@ -11,12 +11,11 @@ Combos & Animations: Smooth attack animations with visual effects for special co
 
 
 <h1 style="font-size: 36px;">What I'm Learning 📚</h1>
-Setting up a 3D environment in Unity. <br>
-Implementing character movement and physics. <br>
-Creating and animating player and enemy models. <br>
-Developing combat mechanics (e.g., melee or ranged attacks).<br>
-Using Unity's NavMesh for enemy AI pathfinding.<br>
-Optimizing game performance and debugging.
+Implemented character movement and physics. <br>
+Create and animate player and enemy models. <br>
+Develop fighting mechanics such as melee attacks and combos. <br>
+Create a health and damage system. <br>
+Implement simple AI for enemies. <br>
 
 
 ## Download Game
